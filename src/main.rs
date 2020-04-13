@@ -3,7 +3,7 @@ use mongodb::{options::ClientOptions, Client};
 use serde_json::{json, Value};
 //
 fn main() {
-    let client= Client::with_uri_str("mongodb+srv://author:author123@cluster0-geoiq.mongodb.net/test?retryWrites=true&w=majority").expect("Failed to connect");
+    let client= Client::with_uri_str("mongodb+srv://<username>:<password>@cluster0-geoiq.mongodb.net/test?retryWrites=true&w=majority").expect("Failed to connect");
     let db = client.database("test").collection("user_details");
     let docs = doc! { "user_name": "John123" };
     let data = db.insert_one(docs, None).unwrap();
